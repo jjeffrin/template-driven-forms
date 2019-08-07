@@ -1,0 +1,46 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>Template Driven Forms</h3>
+        <div class="row">
+            <div class="col-sm-6">
+                <form (ngSubmit)="onSubmit()" #formData="ngForm">
+                    <div class="form-group">
+                        <label for="email"><strong><i>Email Id</i></strong></label>
+                        <input
+                        id="email"
+                        name="email"
+                        type="text"
+                        class="form-control"
+                        email
+                        ngModel
+                        required>
+                        <p class="text-danger font-italic">Please enter a valid Email Id.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="subscription"><strong><i>Select subscription plan</i></strong></label>
+                        <select name="subscription" id="subscription" class="custom-select" ngModel="advanced">
+                            <option value="basic">Basic</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="pro">Pro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><strong><i>Password</i></strong></label>
+                        <input
+                        name="password"
+                        id="password"
+                        class="form-control"
+                        type="password"
+                        ngModel
+                        required
+                        >
+                        <p class="text-danger font-italic">This field is mandatory.</p>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" [disabled]="!formData.valid">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
