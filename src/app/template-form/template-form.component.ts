@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-template-form',
@@ -6,14 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent implements OnInit {
-  
+  @ViewChild('formData', {static: false}) form: NgForm;
+  submitted: boolean = false;
+  userData: {
+    email: string,
+    subscription: string,
+    password: string
+  };
+
   constructor() { }
 
   ngOnInit() {
   }
 
   onSubmit(form: FormData) {
-    console.log(form);
+    this.submitted = true;
+    console.log(this.form.form.value);
   }
 
 }
